@@ -23,7 +23,7 @@ spec:
           value: "https://finchat-mop-private.finogeeks.club"
         - name: NGINX_PORT
           value: "80"
-        image: {{ .Values.images.scattered-page }}
+        image: {{ .Values.images.scattered_page }}
         name: scattered-page
         resources: {}
       restartPolicy: Always
