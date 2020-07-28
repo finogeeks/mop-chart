@@ -25,7 +25,7 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
-        image: {{ .Values.images.applets-ecol-notify }}
+        image: {{ .Values.images.applets_ecol_notify }}
         name: applets-ecol-notify
         resources: {}
       restartPolicy: Always

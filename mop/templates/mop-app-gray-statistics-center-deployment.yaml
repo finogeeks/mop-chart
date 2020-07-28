@@ -31,7 +31,7 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
-        image: {{ .Values.images.mop-app-gray-statistics-center }}
+        image: {{ .Values.images.mop_app_gray_statistics_center }}
         name: mop-app-gray-statistics-center
         resources: {}
       restartPolicy: Always

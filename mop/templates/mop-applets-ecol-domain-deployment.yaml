@@ -25,7 +25,7 @@ spec:
           value: mongo
         - name: WHITELIST_DOMAIN_MAX_NUM
           value: "1000"
-        image: {{ .Values.images.applets-ecol-domain }}
+        image: {{ .Values.images.applets_ecol_domain }}
         name: applets-ecol-domain
         resources: {}
       restartPolicy: Always

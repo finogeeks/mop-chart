@@ -30,7 +30,7 @@ spec:
           value: kong
         - name: TZ
           value: Asia/Shanghai
-        image: {{ .Values.images.kong-db }}
+        image: {{ .Values.images.kong_db }}
         name: kong-db
         resources: {}
         volumeMounts:

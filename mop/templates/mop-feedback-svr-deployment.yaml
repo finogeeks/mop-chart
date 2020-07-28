@@ -30,7 +30,7 @@ spec:
         - name: PUBLISH_ENV
           value: compose
         - name: ZIPKIN_URL
-        image: {{ .Values.images.mop-feedback-svr }}
+        image: {{ .Values.images.mop_feedback_svr }}
         name: mop-feedback-svr
         resources: {}
       restartPolicy: Always

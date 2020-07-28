@@ -37,7 +37,7 @@ spec:
           value: compose
         - name: REDIS_URL
           value: redis://redis:6379/10
-        image: {{ .Values.images.mop-basic-pack-svr }}
+        image: {{ .Values.images.mop_basic_pack_svr }}
         name: mop-basic-pack-svr
         resources: {}
       restartPolicy: Always

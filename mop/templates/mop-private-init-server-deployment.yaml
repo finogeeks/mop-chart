@@ -31,7 +31,7 @@ spec:
           value: 社区版
         - name: ORGAN_PATH
           value: community
-        image: {{ .Values.images.mop-private-init-server }}
+        image: {{ .Values.images.mop_private_init_server }}
         name: mop-private-init-server
         resources: {}
       restartPolicy: Always

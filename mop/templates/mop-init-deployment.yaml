@@ -28,7 +28,7 @@ spec:
         env:
         - name: ENV_TYPE
           value: mop
-        image: {{ .Values.images.mop-init }}
+        image: {{ .Values.images.mop_init }}
         name: mop-init
         resources: {}
       restartPolicy: Always

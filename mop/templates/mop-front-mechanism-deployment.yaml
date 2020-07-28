@@ -23,7 +23,7 @@ spec:
           value: http://gateway:8000/
         - name: NGINX_PORT
           value: "80"
-        image: {{ .Values.images.mop-front-mechanism }}
+        image: {{ .Values.images.mop_front_mechanism }}
         name: mop-front-mechanism
         resources: {}
       restartPolicy: Always

@@ -1,4 +1,4 @@
-i-mages:
+images:
     #storage image
     kafka: docker.finogeeks.club/finochat/kafka:2.11-2.0.1
     netdisk: docker.finogeeks.club/finochat/netdisk:1.5.0

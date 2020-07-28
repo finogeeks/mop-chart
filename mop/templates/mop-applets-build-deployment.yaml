@@ -27,7 +27,7 @@ spec:
           value: mongo
         - name: MONGO_PORT
           value: "27017"
-        image: {{ .Values.images.applets-build }}
+        image: {{ .Values.images.applets_build }}
         name: applets-build
         resources: {}
       restartPolicy: Always

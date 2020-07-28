@@ -40,7 +40,7 @@ spec:
         - name: REDIS_URL
           value: redis://redis:6379/10
         - name: ZIPKIN_URL
-        image: {{ .Values.images.mop-article-pub-center }}
+        image: {{ .Values.images.mop_article_pub_center }}
         name: mop-article-pub-center
         resources: {}
       restartPolicy: Always

@@ -27,7 +27,7 @@ spec:
           value: private
         - name: REDIS_ADDR
           value: redis://redis:6379/10
-        image: {{ .Values.images.mop-netdisk-proxy }}
+        image: {{ .Values.images.mop_netdisk_proxy }}
         name: mop-netdisk-proxy
         resources: {}
       restartPolicy: Always
