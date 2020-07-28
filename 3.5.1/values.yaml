@@ -1,0 +1,2 @@
+images:
+    auth_center: docker.finogeeks.club/finochat/auth-center:1.5.0
