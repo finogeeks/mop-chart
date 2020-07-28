@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-rule-engine-svr
+  name: mop-rule-engine-svr
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-rule-engine-svr
+    spec:
+      containers:
+      - env:
+        - name: ACCOUNT_HOST
+          value: http://applets-ecol-account:8080
+        - name: DB_NAME
+          value: mop-rule-engine
+        - name: KAFKA_ADDR
+          value: kafka:9092
+        - name: KAFKA_DATA_LOG_TOPIC
+          value: mop_operation_log
+        - name: LOG_MODE
+          value: debug
+        - name: MONGO_URL
+          value: mongo
+        - name: NETDISK_DOWN_URL
+          value: /api/v1/netdisk/download/
+        - name: NETDISK_HOST
+          value: http://netdisk:9999
+        - name: NETDISK_UPLOAD_URL
+          value: /api/v1/netdisk/upload/self
+        - name: NOTIFY_TOPIC
+          value: mop_notify_data_topic
+        - name: PUBLISH_ENV
+          value: saas
+        - name: REDIS_PASSWORD
+        - name: REDIS_URL
+          value: redis://redis:6379/10
+        - name: ROUTE_MODE
+          value: debug
+        image: mop-rule-engine-svr
+        name: mop-rule-engine-svr
+        resources: {}
+      restartPolicy: Always
+status: {}

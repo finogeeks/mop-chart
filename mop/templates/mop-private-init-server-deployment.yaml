@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-private-init-server
+  name: mop-private-init-server
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-private-init-server
+    spec:
+      containers:
+      - env:
+        - name: AUTO_REGISTER
+          value: "1"
+        - name: MONGO_URL
+          value: mongo
+        - name: NETDISK_URL
+          value: http://netdisk:9999
+        - name: NETDISK_USER
+          value: mop-community
+        - name: ORGAN_NAME
+          value: 社区版
+        - name: ORGAN_PATH
+          value: community
+        image: mop-private-init-server
+        name: mop-private-init-server
+        resources: {}
+      restartPolicy: Always
+status: {}
