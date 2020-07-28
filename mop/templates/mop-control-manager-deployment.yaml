@@ -25,8 +25,10 @@ spec:
           value: mop-control-manager
         - name: MONGO_URL
           value: mongo
-        image: mop-control-manager
+        image: {{ .Values.images.mop-control-manager }}
         name: mop-control-manager
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

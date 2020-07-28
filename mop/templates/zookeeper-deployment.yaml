@@ -19,7 +19,7 @@ spec:
         io.kompose.service: zookeeper
     spec:
       containers:
-      - image: zookeeper
+      - image: {{ .Values.images.zookeeper }}
         name: zookeeper
         resources: {}
         volumeMounts:
@@ -40,4 +40,6 @@ spec:
       - name: zookeeper-claim2
         persistentVolumeClaim:
           claimName: zookeeper-claim2
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

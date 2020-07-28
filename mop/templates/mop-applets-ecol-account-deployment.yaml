@@ -35,8 +35,10 @@ spec:
           value: http://gateway:8001
         - name: MONGO_URL
           value: mongo
-        image: applets-ecol-account
+        image: {{ .Values.images.applets-ecol-account }}
         name: applets-ecol-account
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

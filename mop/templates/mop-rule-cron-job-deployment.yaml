@@ -18,8 +18,10 @@ spec:
         io.kompose.service: mop-rule-cron-job
     spec:
       containers:
-      - image: mop-rule-cron-job
+      - image: {{ .Values.images.mop-rule-cron-job }}
         name: mop-rule-cron-job
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

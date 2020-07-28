@@ -64,8 +64,10 @@ spec:
           value: "180"
         - name: REDIS_URL
           value: redis://redis:6379/10
-        image: mop-app-manage-svr
+        image: {{ .Values.images.mop-app-manage-svr }}
         name: mop-app-manage-svr
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

@@ -46,8 +46,10 @@ spec:
           value: redis://redis:6379/10
         - name: ROUTE_MODE
           value: debug
-        image: mop-rule-engine-svr
+        image: {{ .Values.images.mop-rule-engine-svr }}
         name: mop-rule-engine-svr
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

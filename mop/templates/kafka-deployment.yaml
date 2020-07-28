@@ -32,13 +32,15 @@ spec:
           value: "48"
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zookeeper:2181
-        image: kafka
+        image: {{ .Values.images.kafka }}
         name: kafka
         resources: {}
         volumeMounts:
         - mountPath: /kafka
           name: kafka-claim0
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
       volumes:
       - name: kafka-claim0
         persistentVolumeClaim:

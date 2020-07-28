@@ -23,8 +23,10 @@ spec:
           value: https://finchat-mop-private.finogeeks.club
         - name: NGINX_PORT
           value: "80"
-        image: scattered-page
+        image: {{ .Values.images.scattered-page }}
         name: scattered-page
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

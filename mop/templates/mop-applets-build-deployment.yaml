@@ -27,8 +27,10 @@ spec:
           value: mongo
         - name: MONGO_PORT
           value: "27017"
-        image: applets-build
+        image: {{ .Values.images.applets-build }}
         name: applets-build
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

@@ -27,13 +27,15 @@ spec:
           value: finogeeks
         - name: MINIO_SECRET_KEY
           value: '!encAnK88#@abIObcd)5'
-        image: minio
+        image: {{ .Values.images.minio }}
         name: minio
         resources: {}
         volumeMounts:
         - mountPath: /data
           name: minio-claim0
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
       volumes:
       - name: minio-claim0
         persistentVolumeClaim:

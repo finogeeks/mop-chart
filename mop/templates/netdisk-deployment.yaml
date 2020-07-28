@@ -33,8 +33,10 @@ spec:
           value: '!encAnK88#@abIObcd)5'
         - name: mongoUrl
           value: mongo
-        image: netdisk
+        image: {{ .Values.images.netdisk }}
         name: netdisk
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

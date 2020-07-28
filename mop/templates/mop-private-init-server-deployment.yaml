@@ -31,8 +31,10 @@ spec:
           value: 社区版
         - name: ORGAN_PATH
           value: community
-        image: mop-private-init-server
+        image: {{ .Values.images.mop-private-init-server }}
         name: mop-private-init-server
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

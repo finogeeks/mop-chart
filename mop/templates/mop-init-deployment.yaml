@@ -28,8 +28,10 @@ spec:
         env:
         - name: ENV_TYPE
           value: mop
-        image: mop-init
+        image: {{ .Values.images.mop-init }}
         name: mop-init
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

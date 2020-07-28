@@ -17,6 +17,42 @@ spec:
       labels:
         io.kompose.service: gateway
     spec:
+      initContainers:
+        - name: kong-migrations
+          image: {{ .Values.images.kong_migrations }}
+          command: ["/bin/sh","-c"]
+          args: ["kong migrations bootstrap"]
+          env:
+          - name: KONG_DATABASE
+            value: postgres
+          - name: KONG_PG_DATABASE
+            value: kong
+          - name: KONG_PG_HOST
+            value: kong-db
+          - name: KONG_PG_PASSWORD
+            value: kong@@123321
+          - name: KONG_PG_PORT
+            value: "5432"
+          - name: KONG_PG_USER
+            value: kong
+          imagePullPolicy: Always
+        - name: kong-migrations-finish
+          image: {{ .Values.images.kong_migrations_up }}
+          command: ["/bin/sh","-c"]
+          args: ["kong migrations finish"]
+          env:
+          - name: KONG_DATABASE
+            value: postgres
+          - name: KONG_PG_DATABASE
+            value: kong
+          - name: KONG_PG_HOST
+            value: kong-db
+          - name: KONG_PG_PASSWORD
+            value: kong@@123321
+          - name: KONG_PG_PORT
+            value: "5432"
+          - name: KONG_PG_USER
+            value: kong
       containers:
       - env:
         - name: KONG_ADMIN_ACCESS_LOG
@@ -45,7 +81,7 @@ spec:
           value: 0.0.0.0:8000, 0.0.0.0:8443
         - name: TZ
           value: Asia/Shanghai
-        image: gateway
+        image: {{ .Values.images.gateway }}
         livenessProbe:
           exec:
             command:
@@ -59,4 +95,6 @@ spec:
         - containerPort: 8000
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

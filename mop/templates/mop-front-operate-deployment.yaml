@@ -23,8 +23,10 @@ spec:
           value: http://gateway:8000/
         - name: NGINX_PORT
           value: "80"
-        image: mop-front-operate
+        image: {{ .Values.images.mop-front-operate }}
         name: mop-front-operate
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

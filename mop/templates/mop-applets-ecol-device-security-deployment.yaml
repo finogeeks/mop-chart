@@ -29,8 +29,10 @@ spec:
           value: "100"
         - name: MONGO_URL
           value: mongo
-        image: applets-ecol-device-security
+        image: {{ .Values.images.applets-ecol-device-security }}
         name: applets-ecol-device-security
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

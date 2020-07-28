@@ -21,8 +21,11 @@ spec:
       - env:
         - name: NGINX_PORT
           value: "80"
-        image: mop-front-document
+        image: {{ .Values.images.mop-front-document }}
         name: mop-front-document
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}
+

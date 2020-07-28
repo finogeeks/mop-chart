@@ -25,8 +25,10 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
-        image: data-report
+        image: {{ .Values.images.data-report }}
         name: data-report
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

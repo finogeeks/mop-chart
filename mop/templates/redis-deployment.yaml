@@ -23,7 +23,7 @@ spec:
         - redis-server
         - --appendonly
         - "yes"
-        image: redis
+        image: {{ .Values.images.redis }}
         name: redis
         resources: {}
         volumeMounts:
@@ -34,4 +34,6 @@ spec:
       - name: redis-claim0
         persistentVolumeClaim:
           claimName: redis-claim0
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

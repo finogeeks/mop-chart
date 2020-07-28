@@ -31,8 +31,10 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
-        image: mop-app-gray-statistics-center
+        image: {{ .Values.images.mop-app-gray-statistics-center }}
         name: mop-app-gray-statistics-center
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}

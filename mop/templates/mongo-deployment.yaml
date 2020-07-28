@@ -24,13 +24,15 @@ spec:
           value: /data/db
         - name: MONGO_SERVICE_NAME
           value: mongo
-        image: mongo
+        image: {{ .Values.images.mongo }}
         name: mongo
         resources: {}
         volumeMounts:
         - mountPath: /data/db
           name: mongo-claim0
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
       volumes:
       - name: mongo-claim0
         persistentVolumeClaim:

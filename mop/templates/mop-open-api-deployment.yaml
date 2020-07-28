@@ -27,8 +27,10 @@ spec:
           value: mongo
         - name: REDIS_URL
           value: redis://redis:6379/10
-        image: mop-open-api
+        image: {{ .Values.images.mop-open-api }}
         name: mop-open-api
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}
