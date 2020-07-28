@@ -20,7 +20,7 @@ spec:
       containers:
       - env:
         - name: API_URL
-          value: https://finchat-mop-private.finogeeks.club
+          value: "https://finchat-mop-private.finogeeks.club"
         - name: NGINX_PORT
           value: "80"
         image: {{ .Values.images.scattered-page }}
