@@ -34,14 +34,14 @@ spec:
         name: kong-db
         resources: {}
         volumeMounts:
-        - mountPath: /var/lib/postgresql/data
+        - mountPath: /var/lib/postgresql
           name: kong-db-claim0
       restartPolicy: Always
       imagePullSecrets:
         - name: {{ .Values.k8s_imagePullSecrets }}
       volumes:
       - name: kong-db-claim0
-        subPath: postgres
+        subPath: data
         persistentVolumeClaim:
           claimName: kong-db-claim0
 status: {}
