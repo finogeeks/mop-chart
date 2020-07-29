@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-init
+  name: mop-init
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-init
+    spec:
+      containers:
+      - args:
+        - sh
+        - -c
+        - |
+          sleep 70s
+          node download.js
+          node index.js
+        env:
+        - name: ENV_TYPE
+          value: mop
+        image: {{ .Values.images.mop_init }}
+        name: mop-init
+        resources: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}

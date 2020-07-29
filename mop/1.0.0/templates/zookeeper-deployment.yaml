@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: zookeeper
+  name: zookeeper
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: zookeeper
+    spec:
+      containers:
+      - image: {{ .Values.images.zookeeper }}
+        name: zookeeper
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: zookeeper-claim0
+        - mountPath: /datalog
+          name: zookeeper-claim1
+        - mountPath: /logs
+          name: zookeeper-claim2
+      restartPolicy: Always
+      volumes:
+      - name: zookeeper-claim0
+        persistentVolumeClaim:
+          claimName: zookeeper-claim0
+      - name: zookeeper-claim1
+        persistentVolumeClaim:
+          claimName: zookeeper-claim1
+      - name: zookeeper-claim2
+        persistentVolumeClaim:
+          claimName: zookeeper-claim2
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}

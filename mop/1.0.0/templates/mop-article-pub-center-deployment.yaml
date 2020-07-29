@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-article-pub-center
+  name: mop-article-pub-center
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-article-pub-center
+    spec:
+      containers:
+      - env:
+        - name: ACCOUNT_INFO_URL
+          value: http://applets-ecol-account:8080/api/v1/mop/applets-ecol-account/operation/worker/detail/
+        - name: AUTH_CHECK_URL
+          value: http://applets-ecol-account:8080
+        - name: CRON_KEY_PRE
+          value: article_publish_cron_private_
+        - name: DB_NAME
+          value: mop-private-article-pub-center-private
+        - name: HTTP_PORT
+          value: "34000"
+        - name: KAFKA_ADDR
+          value: kafka:9092
+        - name: MONGO_URL
+          value: mongo
+        - name: NOTIFY_URL
+          value: http://applets-ecol-notify:8080
+        - name: PUBLISH_ENV
+          value: private
+        - name: REDIS_URL
+          value: redis://redis:6379/10
+        - name: ZIPKIN_URL
+        image: {{ .Values.images.mop_article_pub_center }}
+        name: mop-article-pub-center
+        resources: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}
