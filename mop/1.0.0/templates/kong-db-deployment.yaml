@@ -23,7 +23,7 @@ spec:
         - name: POSTGRES_DB
           value: kong
         - name: POSTGRES_MULTIPLE_DATABASES
-          value: konga
+          value: "konga,mop-private-applets-ecol-account"
         - name: POSTGRES_PASSWORD
           value: kong@@123321
         - name: POSTGRES_USER

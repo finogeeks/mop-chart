@@ -1,5 +1,5 @@
 apiVersion: extensions/v1beta1
-kind: Deployment
+kind: Job
 metadata:
   annotations:
     kompose.cmd: kompose convert -c
@@ -31,7 +31,7 @@ spec:
         image: {{ .Values.images.mop_init }}
         name: mop-init
         resources: {}
-      restartPolicy: Always
+      restartPolicy: OnFailure
       imagePullSecrets:
         - name: {{ .Values.k8s_imagePullSecrets }}
 status: {}
