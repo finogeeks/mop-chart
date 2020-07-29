@@ -36,6 +36,7 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: kong-db-claim0
+          subPath: data
       restartPolicy: Always
       imagePullSecrets:
         - name: {{ .Values.k8s_imagePullSecrets }}
@@ -43,5 +44,4 @@ spec:
       - name: kong-db-claim0
         persistentVolumeClaim:
           claimName: kong-db-claim0
-        emptyDir: {}
 status: {}
