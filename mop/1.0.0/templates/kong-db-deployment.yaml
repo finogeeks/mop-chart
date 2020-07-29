@@ -41,6 +41,7 @@ spec:
         - name: {{ .Values.k8s_imagePullSecrets }}
       volumes:
       - name: kong-db-claim0
+        subPath: postgres
         persistentVolumeClaim:
           claimName: kong-db-claim0
 status: {}
