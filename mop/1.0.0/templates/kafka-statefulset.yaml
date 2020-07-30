@@ -32,6 +32,10 @@ spec:
           value: "48"
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zookeeper:2181
+        - name: KAFKA_CFG_LISTENERS
+          value: "CLIENT://kafka:9092,EXTERNAL://:9093"
+        - name: ALLOW_PLAINTEXT_LISTENER
+          value: "yes"
         image: {{ .Values.images.kafka }}
         name: kafka
         resources: {}

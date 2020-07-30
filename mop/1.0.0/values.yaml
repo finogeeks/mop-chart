@@ -1,6 +1,6 @@
 images:
     #storage image
-    kafka: docker.finogeeks.club/finochat/kafka:2.11-2.0.1
+    kafka: docker.finogeeks.club/base/kafka:2.4.0-debian-9-r20
     netdisk: docker.finogeeks.club/finochat/netdisk:1.5.0
     mongo: docker.finogeeks.club/base/mongo:4.2.1-bionic
     redis: docker.finogeeks.club/base/redis:4.0.5-alpine
