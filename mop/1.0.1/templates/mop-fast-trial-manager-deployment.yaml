@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-fast-trial-manager
+  name: mop-fast-trial-manager
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-fast-trial-manager
+    spec:
+      containers:
+      - env:
+        - name: HTTP_PORT
+          value: "8080"
+        - name: REDIS_MODE
+          value: "single"
+        - name: MONGO_URL
+          value: mongo
+        - name: REDIS_ADDR
+          value: "redis://redis:6379/8"
+        - name: UAT_REPORT_DATA_URL
+          value: 'https://mp.finogeeks.com/api/v1/mop/mop-fast-trial-manager/info/apply'
+        - name: COMMUNITY_VERIFYCODE_URL
+          value: 'https://mp.finogeeks.com/api/v1/mop/open-api/verify-code'
+        image: {{ .Values.images.mop_fast_trial_manager }}
+        name: mop-fast-trial-manager
+        resources: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}
