@@ -11,7 +11,7 @@ metadata:
 spec:
   ports:
   - name: "mop-app-manage-svr"
-    port: 8080
+    port: 12305
     targetPort: 12305
   selector:
     io.kompose.service: mop-app-manage-svr
