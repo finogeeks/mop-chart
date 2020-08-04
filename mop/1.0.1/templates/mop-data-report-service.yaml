@@ -6,7 +6,7 @@ metadata:
     io.kompose.service: mop-data-report
 spec:
   ports:
-  - port: 3000
+  - port: 8080
     name: port
     targetPort: 3000
   selector:
