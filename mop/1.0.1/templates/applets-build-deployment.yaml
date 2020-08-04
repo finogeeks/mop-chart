@@ -24,7 +24,7 @@ spec:
         - name: IS_COMMUNITY
           value: "true"
         - name: MONGO_DOMAIN
-          value: " "
+          value: ""
         - name: MONGO_PORT
           value: "27017"
         - name: MONGO_URL
