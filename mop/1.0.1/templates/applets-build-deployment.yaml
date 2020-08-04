@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: applets-build
+  name: applets-build
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: applets-build
+    spec:
+      containers:
+      - env:
+        - name: FINSTORE_SERVER
+          value: http://mop-app-manage-svr:12305
+        - name: IS_COMMUNITY
+          value: "true"
+        - name: MONGO_DOMAIN
+          value: mongo
+        - name: MONGO_PORT
+          value: "27017"
+        image: {{ .Values.images.applets_build }}
+        name: applets-build
+        resources: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}

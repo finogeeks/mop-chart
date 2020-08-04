@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mop-front-operate
+  name: mop-front-operate
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mop-front-operate
+    spec:
+      containers:
+      - env:
+        - name: API_URL
+          value: http://gateway:8000/
+        - name: NGINX_PORT
+          value: "80"
+        image: {{ .Values.images.mop_front_operate }}
+        name: mop-front-operate
+        resources: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: {{ .Values.k8s_imagePullSecrets }}
+status: {}

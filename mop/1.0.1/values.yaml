@@ -1,0 +1,44 @@
+images:
+    #storage image
+    kafka: docker.finogeeks.club/finochat/kafka:2.11-2.0.1
+    netdisk: docker.finogeeks.club/finochat/netdisk:1.5.0
+    mongo: docker.finogeeks.club/base/mongo:4.2.1-bionic
+    redis: docker.finogeeks.club/base/redis:4.0.5-alpine
+    minio: docker.finogeeks.club/base/minio:RELEASE.2018-12-13T02-04-19Z
+    pg_master: docker.finogeeks.club/base/postgres:11-alpine
+    zookeeper: docker.finogeeks.club/finochat/zookeeper:3.4.13
+    
+    #gateway image
+    kong_db: docker.finogeeks.club/base/postgres:11-alpine
+    gateway: docker.finogeeks.club/finstore/kong-mop:1.1.0
+    kong_migrations: docker.finogeeks.club/finstore/kong-mop:1.1.0
+    kong_migrations_up: docker.finogeeks.club/finstore/kong-mop:1.1.0
+    gateway_dashboard: docker.finogeeks.club/iam/konga:0.14.1
+    gateway_init: docker.finogeeks.club/finochat/gateway-init-new-kong:1.2.20-kong-1
+    
+    #mop image
+    mop_app_manage_svr: docker.finogeeks.club/mop/mop-app-manage-svr:2.7.0
+    applets_ecol_account: docker.finogeeks.club/mop/mop-account-system:2.7.0
+    applets_ecol_notify: docker.finogeeks.club/mop/mop-notify:2.7.0
+    applets_ecol_domain: docker.finogeeks.club/mop/mop-domain-manager:2.7.0
+    applets_ecol_device_security: docker.finogeeks.club/mop/mop-device-security:2.7.0
+    mop_front_document: docker.finogeeks.club/mop/mop-front-document:2.5.5
+    mop_front_mechanism: docker.finogeeks.club/mop/mop-front-mechanism:2.2.26-community
+    mop_front_operate: docker.finogeeks.club/mop/mop-front-operate:2.2.26-community
+    applets_build: docker.finogeeks.club/mop/mop-applet-build-community:2.5.10
+    mop_article_pub_center: docker.finogeeks.club/mop/mop-article-pub-center:2.7.0
+    data_report: docker.finogeeks.club/mop/mop-data-report:2.7.0
+    scattered_page: docker.finogeeks.club/mop/mop-scattered-page:2.0.1
+    netdisk: docker.finogeeks.club/finochat/netdisk:1.6.0
+    mop_basic_pack_svr: docker.finogeeks.club/mop/mop-basic-pack-svr:2.7.0
+    mop_license_checker: docker.finogeeks.club/mop/mop-license-checker:2.7.0
+    mop_private_init_server: docker.finogeeks.club/mop/mop-private-init-server:2.7.0
+    mop_feedback_svr: docker.finogeeks.club/mop/mop-feedback-svr:2.7.0
+    mop_netdisk_proxy: docker.finogeeks.club/mop/mop-netdisk-proxy:2.7.0
+    mop_open_api: docker.finogeeks.club/mop/mop-open-api:2.7.0
+    mop_rule_engine_svr: docker.finogeeks.club/mop/mop-rule-engine-svr:2.7.0
+    mop_control_manager: docker.finogeeks.club/mop/mop-control-manager:2.7.0
+    mop_init: docker.finogeeks.club/mop/mop-init:2.0.0
+    mop_rule_cron_job: docker.finogeeks.club/mop/rule-cron:2.0.0
+    mop_app_gray_statistics_center: docker.finogeeks.club/mop/mop-app-gray-statistics-center:2.7.0
+    mop_fast_trial_manager: docker.finogeeks.club/mop/mop-fast-trial-manager:2.7.1
