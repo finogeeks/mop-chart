@@ -6,15 +6,15 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: kafka
-  name: kafka-0
+    io.kompose.service: mongo
+  name: mongo-0
 spec:
   clusterIP: None
   ports:
-  - name: "kafka"
-    port: 9092
-    targetPort: 9092
+  - name: "mongo"
+    port: 27017
+    targetPort: 27017
   selector:
-    io.kompose.service: kafka
+    io.kompose.service: mongo
 status:
   loadBalancer: {}
