@@ -27,7 +27,7 @@ images:
     mop_front_operate: docker.finogeeks.club/mop/mop-front-operate:2.2.26-community
     applets_build: docker.finogeeks.club/mop/mop-applet-build-community:2.5.10
     mop_article_pub_center: docker.finogeeks.club/mop/mop-article-pub-center:2.7.0
-    data_report: docker.finogeeks.club/mop/mop-data-report:2.7.0
+    data_report: docker.finogeeks.club/mop/mop-data-report:2.7.2
     scattered_page: docker.finogeeks.club/mop/mop-scattered-page:2.0.1
     netdisk: docker.finogeeks.club/finochat/netdisk:1.6.0
     mop_basic_pack_svr: docker.finogeeks.club/mop/mop-basic-pack-svr:2.7.0

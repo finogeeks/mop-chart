@@ -25,6 +25,8 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
+        - name: PUB_ENV
+          value: mop-community
         image: {{ .Values.images.data_report }}
         name: data-report
         resources: {}
