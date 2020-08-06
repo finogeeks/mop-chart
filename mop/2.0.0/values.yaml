@@ -38,7 +38,7 @@ images:
     mop_open_api: docker.finogeeks.club/mop/mop-open-api:2.7.0
     mop_rule_engine_svr: docker.finogeeks.club/mop/mop-rule-engine-svr:2.7.0
     mop_control_manager: docker.finogeeks.club/mop/mop-control-manager:2.7.0
-    mop_init: docker.finogeeks.club/mop/mop-init:2.3.0
+    mop_init: docker.finogeeks.club/mop/mop-init:3.0.0
     mop_rule_cron_job: docker.finogeeks.club/mop/rule-cron:2.0.0
     mop_app_gray_statistics_center: docker.finogeeks.club/mop/mop-app-gray-statistics-center:2.7.0
     mop_fast_trial_manager: docker.finogeeks.club/mop/mop-fast-trial-manager:2.7.1
