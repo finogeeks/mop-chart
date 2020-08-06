@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mongo
+    app: mongo
   name: mongo-0
 spec:
   clusterIP: None
@@ -15,6 +15,6 @@ spec:
     port: 27017
     targetPort: 27017
   selector:
-    io.kompose.service: mongo
+    app: mongo
 status:
   loadBalancer: {}

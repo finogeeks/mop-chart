@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: applets-build
   labels:
-    io.kompose.service: applets-build
+    app: applets-build
 spec:
   ports:
   - port: 3000
     name: port
     targetPort: 3000
   selector:
-    io.kompose.service: applets-build
+    app: applets-build

@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-basic-pack-svr
+    app: mop-basic-pack-svr
   name: mop-basic-pack-svr
 spec:
   replicas: 1
@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-basic-pack-svr
+        app: mop-basic-pack-svr
     spec:
       containers:
       - env:

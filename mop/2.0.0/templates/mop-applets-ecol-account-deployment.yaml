@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: applets-ecol-account
+    app: applets-ecol-account
   name: applets-ecol-account
 spec:
   replicas: 1
@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: applets-ecol-account
+        app: applets-ecol-account
     spec:
       containers:
       - env:

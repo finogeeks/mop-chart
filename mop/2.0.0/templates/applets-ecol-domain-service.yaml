@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: applets-ecol-domain
+    app: applets-ecol-domain
   name: applets-ecol-domain
 spec:
   ports:
@@ -14,6 +14,6 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    io.kompose.service: applets-ecol-domain
+    app: applets-ecol-domain
 status:
   loadBalancer: {}

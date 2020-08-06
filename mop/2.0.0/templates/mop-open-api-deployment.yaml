@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-open-api
+    app: mop-open-api
   name: mop-open-api
 spec:
   replicas: 1
@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-open-api
+        app: mop-open-api
     spec:
       containers:
       - env:

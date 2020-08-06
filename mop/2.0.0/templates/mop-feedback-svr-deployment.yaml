@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-feedback-svr
+    app: mop-feedback-svr
   name: mop-feedback-svr
 spec:
   replicas: 1
@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-feedback-svr
+        app: mop-feedback-svr
     spec:
       containers:
       - env:

@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: gateway
+    app: gateway
   name: gateway
 spec:
   type: NodePort
@@ -20,6 +20,6 @@ spec:
     targetPort: 8001
     nodePort: 30001
   selector:
-    io.kompose.service: gateway
+    app: gateway
 status:
   loadBalancer: {}

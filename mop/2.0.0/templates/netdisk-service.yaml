@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: netdisk
+    app: netdisk
   name: netdisk
 spec:
   ports:
@@ -14,6 +14,6 @@ spec:
     port: 9999
     targetPort: 9999
   selector:
-    io.kompose.service: netdisk
+    app: netdisk
 status:
   loadBalancer: {}

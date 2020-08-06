@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: zookeeper
+    app: zookeeper
   name: zookeeper
 spec:
   replicas: 1
@@ -16,7 +16,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: zookeeper
+        app: zookeeper
     spec:
       containers:
       - image: {{ .Values.images.zookeeper }}

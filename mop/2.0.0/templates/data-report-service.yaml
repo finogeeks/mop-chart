@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: data-report
   labels:
-    io.kompose.service: data-report
+    app: data-report
 spec:
   ports:
   - port: 3000
     name: port
     targetPort: 3000
   selector:
-    io.kompose.service: data-report
+    app: data-report

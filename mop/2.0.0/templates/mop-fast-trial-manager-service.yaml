@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-fast-trial-manager
+    app: mop-fast-trial-manager
   name: mop-fast-trial-manager
 spec:
   ports:
@@ -14,6 +14,6 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    io.kompose.service: mop-fast-trial-manager
+    app: mop-fast-trial-manager
 status:
   loadBalancer: {}
