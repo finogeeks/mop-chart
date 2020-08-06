@@ -44,8 +44,6 @@ spec:
         - mountPath: /kafka
           name: kafka-claim0
       restartPolicy: Always
-      
-        
       volumes:
       - name: kafka-claim0
         persistentVolumeClaim:
