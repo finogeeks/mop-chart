@@ -22,7 +22,7 @@ spec:
         - sh
         - -c
         - |
-          sleep 70s
+          sleep 700s
           node download.js
           node index.js
         env:
