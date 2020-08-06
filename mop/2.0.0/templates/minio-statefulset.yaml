@@ -9,6 +9,9 @@ metadata:
     app: minio
   name: minio
 spec:
+  selector:
+    matchLabels:
+      app: minio
   replicas: 1
   strategy:
     type: Recreate

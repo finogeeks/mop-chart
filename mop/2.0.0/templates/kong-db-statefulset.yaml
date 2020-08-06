@@ -9,6 +9,9 @@ metadata:
     app: kong-db
   name: kong-db
 spec:
+  selector:
+    matchLabels:
+      app: kong-db
   replicas: 1
   strategy:
     type: Recreate

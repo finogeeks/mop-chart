@@ -9,6 +9,9 @@ metadata:
     app: mongo
   name: mongo
 spec:
+  selector:
+    matchLabels:
+      app: mongo
   replicas: 1
   strategy:
     type: Recreate

@@ -9,6 +9,9 @@ metadata:
     app: zookeeper
   name: zookeeper
 spec:
+  selector:
+    matchLabels:
+      app: zookeeper
   replicas: 1
   strategy:
     type: Recreate

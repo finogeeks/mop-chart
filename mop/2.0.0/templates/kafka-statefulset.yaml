@@ -9,6 +9,9 @@ metadata:
     app: kafka
   name: kafka
 spec:
+  selector:
+    matchLabels:
+      app: kafka
   replicas: 1
   strategy:
     type: Recreate
