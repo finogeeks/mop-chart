@@ -9,6 +9,9 @@ metadata:
     app: applets-ecol-account
   name: applets-ecol-account
 spec:
+  selector:
+    matchLabels:
+      app: applets-ecol-account
   replicas: 1
   strategy: {}
   template:

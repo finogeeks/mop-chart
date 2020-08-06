@@ -9,6 +9,9 @@ metadata:
     app: mop-private-init-server
   name: mop-private-init-server
 spec:
+  selector:
+    matchLabels:
+      app: mop-private-init-server
   replicas: 1
   strategy: {}
   template:

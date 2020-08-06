@@ -9,6 +9,9 @@ metadata:
     app: mop-rule-cron-job
   name: mop-rule-cron-job
 spec:
+  selector:
+    matchLabels:
+      app: mop-rule-cron-job
   replicas: 1
   strategy: {}
   template:

@@ -9,6 +9,9 @@ metadata:
     app: netdisk
   name: netdisk
 spec:
+  selector:
+    matchLabels:
+      app: netdisk
   replicas: 1
   strategy: {}
   template:

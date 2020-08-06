@@ -9,6 +9,9 @@ metadata:
     app: mop-open-api
   name: mop-open-api
 spec:
+  selector:
+    matchLabels:
+      app: mop-open-api
   replicas: 1
   strategy: {}
   template:

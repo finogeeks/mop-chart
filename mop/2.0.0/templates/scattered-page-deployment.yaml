@@ -9,6 +9,9 @@ metadata:
     app: scattered-page
   name: scattered-page
 spec:
+  selector:
+    matchLabels:
+      app: scattered-page
   replicas: 1
   strategy: {}
   template:

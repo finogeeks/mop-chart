@@ -9,6 +9,9 @@ metadata:
     app: data-report
   name: data-report
 spec:
+  selector:
+    matchLabels:
+      app: data-report
   replicas: 1
   strategy: {}
   template:

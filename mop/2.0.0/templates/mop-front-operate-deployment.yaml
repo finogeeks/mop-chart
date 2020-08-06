@@ -9,6 +9,9 @@ metadata:
     app: mop-front-operate
   name: mop-front-operate
 spec:
+  selector:
+    matchLabels:
+      app: mop-front-operate
   replicas: 1
   strategy: {}
   template:

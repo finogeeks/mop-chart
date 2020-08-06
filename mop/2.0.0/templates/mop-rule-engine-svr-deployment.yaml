@@ -9,6 +9,9 @@ metadata:
     app: mop-rule-engine-svr
   name: mop-rule-engine-svr
 spec:
+  selector:
+    matchLabels:
+      app: mop-rule-engine-svr
   replicas: 1
   strategy: {}
   template:
