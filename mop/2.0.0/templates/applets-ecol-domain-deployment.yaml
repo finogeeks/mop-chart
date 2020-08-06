@@ -9,6 +9,9 @@ metadata:
     app: applets-ecol-domain
   name: applets-ecol-domain
 spec:
+  selector:
+    matchLabels:
+      app: applets-ecol-domain
   replicas: 1
   strategy: {}
   template:

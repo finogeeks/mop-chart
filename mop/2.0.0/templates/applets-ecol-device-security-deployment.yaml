@@ -9,6 +9,9 @@ metadata:
     app: applets-ecol-device-security
   name: applets-ecol-device-security
 spec:
+  selector:
+    matchLabels:
+      app: applets-ecol-device-security
   replicas: 1
   strategy: {}
   template:

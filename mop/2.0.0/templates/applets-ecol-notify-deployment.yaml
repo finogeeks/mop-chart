@@ -9,6 +9,9 @@ metadata:
     app: applets-ecol-notify
   name: applets-ecol-notify
 spec:
+  selector:
+    matchLabels:
+      app: applets-ecol-notify
   replicas: 1
   strategy: {}
   template:
