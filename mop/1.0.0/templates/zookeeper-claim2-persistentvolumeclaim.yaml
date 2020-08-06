@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: zookeeper-claim2
+    app: zookeeper-claim2
   name: zookeeper-claim2
 spec:
   accessModes:
@@ -11,5 +11,5 @@ spec:
   storageClassName: longhorn
   resources:
     requests:
-      storage: 100Mi
+      storage: 1G
 status: {}

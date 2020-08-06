@@ -1,21 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -c
-    kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: applets-build
+    app: applets-build
   name: applets-build
 spec:
+  selector:
+    matchLabels:
+      app: applets-build
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: applets-build
+        app: applets-build
     spec:
       containers:
       - env:
@@ -24,13 +24,15 @@ spec:
         - name: IS_COMMUNITY
           value: "true"
         - name: MONGO_DOMAIN
-          value: mongo
+          value: ""
         - name: MONGO_PORT
           value: "27017"
+        - name: MONGO_URL
+          value: mongodb://mongo-0:27017/applet-build
         image: {{ .Values.images.applets_build }}
         name: applets-build
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

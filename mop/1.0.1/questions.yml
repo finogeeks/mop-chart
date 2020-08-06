@@ -1,8 +1,0 @@
-questions:
-- variable: "k8s_imagePullSecrets"
-  description: ""
-  label: "k8s_imagePullSecrets"
-  required: true
-  default: "registrykey-docker-finogeeks-club"
-  type: "string"
-  group: "Common Settings"

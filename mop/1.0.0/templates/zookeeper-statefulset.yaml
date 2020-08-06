@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
@@ -6,9 +6,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: zookeeper
+    app: zookeeper
   name: zookeeper
 spec:
+  selector:
+    matchLabels:
+      app: zookeeper
   replicas: 1
   strategy:
     type: Recreate
@@ -16,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: zookeeper
+        app: zookeeper
     spec:
       containers:
       - image: {{ .Values.images.zookeeper }}
@@ -40,6 +43,6 @@ spec:
       - name: zookeeper-claim2
         persistentVolumeClaim:
           claimName: zookeeper-claim2
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

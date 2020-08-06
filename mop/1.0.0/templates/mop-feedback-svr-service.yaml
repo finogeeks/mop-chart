@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    io.kompose.service: mop-feedback-svr
+    app: mop-feedback-svr
   name: mop-feedback-svr
 spec:
   ports:
@@ -13,4 +13,4 @@ spec:
       port: 9092
       targetPort: 9092
   selector:
-    io.kompose.service: mop-feedback-svr
+    app: mop-feedback-svr

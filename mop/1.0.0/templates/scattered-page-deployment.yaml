@@ -6,30 +6,30 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    app: mop-front-operate
-  name: mop-front-operate
+    app: scattered-page
+  name: scattered-page
 spec:
   selector:
     matchLabels:
-      app: mop-front-operate
+      app: scattered-page
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: mop-front-operate
+        app: scattered-page
     spec:
       containers:
       - env:
         - name: API_URL
-          value: http://gateway:8000/
+          value: "https://finchat-mop-private.finogeeks.club"
         - name: NGINX_PORT
           value: "80"
-        image: {{ .Values.images.mop_front_operate }}
-        name: mop-front-operate
+        image: {{ .Values.images.scattered_page }}
+        name: scattered-page
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

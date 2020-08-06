@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-app-gray-statistics-center
+    app: mop-app-gray-statistics-center
   name: mop-app-gray-statistics-center
 spec:
+  selector:
+    matchLabels:
+      app: mop-app-gray-statistics-center
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-app-gray-statistics-center
+        app: mop-app-gray-statistics-center
     spec:
       containers:
       - args:
@@ -35,6 +38,6 @@ spec:
         name: mop-app-gray-statistics-center
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

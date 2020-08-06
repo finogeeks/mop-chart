@@ -3,13 +3,14 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: mongo-claim0
+    app: mongo-claim0
   name: mongo-claim0
 spec:
+  persistentVolumeReclaimPolicy: Retain
   accessModes:
   - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
-      storage: 100Mi
+      storage: 2G
 status: {}
