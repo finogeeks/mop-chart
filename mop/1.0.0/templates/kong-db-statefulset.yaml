@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
@@ -6,9 +6,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: kong-db
+    app: kong-db
   name: kong-db
 spec:
+  selector:
+    matchLabels:
+      app: kong-db
   replicas: 1
   strategy:
     type: Recreate
@@ -16,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: kong-db
+        app: kong-db
     spec:
       containers:
       - env:
@@ -38,10 +41,9 @@ spec:
           name: kong-db-claim0
           subPath: data
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
       volumes:
       - name: kong-db-claim0
         persistentVolumeClaim:
           claimName: kong-db-claim0
-status: {}

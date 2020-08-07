@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-license-checker
+    app: mop-license-checker
   name: mop-license-checker
 spec:
+  selector:
+    matchLabels:
+      app: mop-license-checker
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-license-checker
+        app: mop-license-checker
     spec:
       containers:
       - args:
@@ -26,11 +29,11 @@ spec:
           /opt/mop-license-checker
         env:
         - name: LICENSE
-          value: gyxXK0fvBxoS5Tdx6srr/nX8vTC6wyKyDI4WjsbRQLM7zrWxfnD8zLSXra8jANqdBAIt+EMk4zfpjUhIOXV/SbsSnfYn/rL50egb2E4KwGX7I262Hkkc72HkpegoNfLY0NqlpOIIc5vQOCJdMJ13H+uPaS5hNP7SYOoYMp7kXr2d7S70QlB9l9T4f1exeLNXJsEPayp5oZW+kKeY72EumnjTSFOCyQqx1HZTMh1W7VKSDua+D+Ukfa7R/JpTmad52TanE/ObSgfqQu1qctQVmleoVDD6M/2qq4qbtVecL+AYBy9Cr9XcLCo87swRRN3WW/RVpKDKLicQODsiLE3tw99LCSTR4dW7oPJwknSUU5nR9yLCUMvTAvV38G1ax8TMCevIK2rXNQn3gwtb2k8Re209DquqrSs2IRnag5+z986oAN+qxuIyxoXD6SurdIq43i7dBbvXPAFiUEauX6Hcfrk/YNvEfxBQBWUzUSuORkfDo31FhK5nVIS9TCPNcNh+H6E31EBKS0qwT9HZ31WrpFixkWZERczRTOBXgAjhZkfUgDRHVMpg+Zb4WVDuC2QZeTUILziFM3+DzxkUBKljuEEWHx6qRly7PAk03GK2hKCUiczPT02aX/VIrSeBsacXoGdVAt7xw/eeM0aaKMs8R9+Jf1pEyWcKz2xiQJq0riFlmEtSf3KF6SHcNTKZlJ17cRUVeNto3acoN6rb5mhv7Ioi4Q0hL029o+MP3ynzruOwMRZiaBvpIyB/94vK8L2j3txZwrJuf6ZRLCg75UGOlkGvCpQbte2djj27u+/xlVRj+IBXlPoCbTnthYHLHLpovZZX5s7/FJskbAYhrRP1dL/TOebRWwAUNrfxBTkB/LyqBA7g25FlAVEseq5noMHrmxNjI/FuL0ggzW+czbpS2Lho2AmxBVbEljrgbjG9ALj4zOHdpl96Jo2tKlbRPpQoi92YzbSw0nJaJjd9vwDnC0UQeeRXme5pZp970PDnJ3nTEXBpuqZbb7Rh62WVK8UQD5==
+          value: gyxXK0fvBxoS5Tdx6srr/nX8vTC6wyKyDI4WjsbRQLNVZ50qHtDfFf1fCx4A7ExfPzzQj4eg3tZNQf1hmL7+lwGh4tMQgB8kFiuqc9wbjWaC5CzJn1JLalPEJldxamwSYrGasbZyZvYQPRRLZznFeufMuuCoDF/soNTto7BVAQoitDHb23wp3DaK7WqqVMMe5+yUnSK6e2YSl4MiKuLkZ5Ac4/BUlvFUaXWFE8eX2Mw/wIS1Jes0KOS4eAwj24nAEEKZnZBN9XyHO4DQkVB3lMQx4i8oV5y44xArzt3gcEEvNt04dwrdGv+7dfRLxZB0zocdalbd81Hiwfy5t60e6w8c/04g131p8gi3d/gsZAkvtAwrb84QsF6b8e/p8FqXPi9vLcgnIYiHDSQmAmTEXqeLN8pMXZ14yx+Sv6f+z0wu8CCs6Cq9n6XOnrW6OrEInhtOeJfSosIsyzhWYBA3eurIpurSsQ3Aq9RAm0f90BEYMdmIsNGyOtl7oezdmOP5W/RVpKDKLicQODsiLE3tw37SAhgR96OtN/2mX4FcfoWlSlgtfYIARKXkf+wrTSGrHQcZhdkfNd1Mi4ggFJUBcozYgrdl7aYCA7ac4AHf6OEAUr4so6AsH1HNsUVIWpENefKA5FoocliZewYemuumMgOO37h2qX4uQct/Fnr3/iom3C4pNmMVUPkXX/car7LJ6n50bYihyKWrf9iE7SoPZyReS434h0/iiOWZem88HlTgZLs/I9w7huxQ+l+WlcOJDAosp8si/aFZC0Zno9iRl4agbQCrwwwd0vWf5O6Z9Y5/qgT8v5YUrZic1qE1yQuJ+trXyAN450kBGruQo8uyjpKe0ZVAGzRT8xhQ+xIp2ZNRa++A7ztC+XjkmBheDmRF9/iHwjJESG3ETJZfIuLm4EDnFCRrN2CpOKgEiXoFdVHnPjPIYlGvxQcY3xELKrTbOc9eWuqSyAtd1+SZhIFJg7FuLlUfLU5EEYoAbKnNg0S/YG073XjFghoiNe2YVEDDrf1Q2u0Hr9ssiOfGnDqiR3UybAyPSYhJhlWm0tO4iR5ff0Y1+8510/8uCFpfT5byB+233JfhUd3gdH9P26/5OY+bRPter7SemBjqXQLyKGOFlG1RnahT87rIE3+BrX/R1mDjAS27auiVdlla3PDevVTi7uis8J4XgZuClfGMnNmi43ECIcz5bClBtwDQFxmv
         image: {{ .Values.images.mop_license_checker }}
         name: mop-license-checker
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

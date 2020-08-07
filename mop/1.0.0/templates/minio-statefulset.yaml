@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
@@ -6,9 +6,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: minio
+    app: minio
   name: minio
 spec:
+  selector:
+    matchLabels:
+      app: minio
   replicas: 1
   strategy:
     type: Recreate
@@ -16,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: minio
+        app: minio
     spec:
       containers:
       - args:
@@ -34,8 +37,8 @@ spec:
         - mountPath: /data
           name: minio-claim0
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
       volumes:
       - name: minio-claim0
         persistentVolumeClaim:

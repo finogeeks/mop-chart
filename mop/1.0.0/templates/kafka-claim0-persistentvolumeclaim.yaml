@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: kafka-claim0
+    app: kafka-claim0
   name: kafka-claim0
 spec:
   accessModes:
@@ -11,5 +11,5 @@ spec:
   storageClassName: longhorn
   resources:
     requests:
-      storage: 100Mi
+      storage: 10G
 status: {}

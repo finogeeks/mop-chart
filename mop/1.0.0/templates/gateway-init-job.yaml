@@ -2,17 +2,17 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    io.kompose.service: gateway-init
+    app: gateway-init
   name: gateway-init
 spec:
   template:
     metadata:
       name: gateway-init
       labels:
-        io.kompose.service: gateway-init
+        app: gateway-init
     spec:
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
       containers:
       - env:
         - name: API_GATEWAY_ENV

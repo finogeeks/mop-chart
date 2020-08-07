@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
@@ -6,9 +6,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mongo
+    app: mongo
   name: mongo
 spec:
+  selector:
+    matchLabels:
+      app: mongo
   replicas: 1
   strategy:
     type: Recreate
@@ -16,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mongo
+        app: mongo
     spec:
       containers:
       - env:
@@ -31,8 +34,8 @@ spec:
         - mountPath: /data/db
           name: mongo-claim0
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
       volumes:
       - name: mongo-claim0
         persistentVolumeClaim:

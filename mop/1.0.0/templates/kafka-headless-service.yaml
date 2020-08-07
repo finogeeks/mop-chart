@@ -6,14 +6,15 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    app: mop-app-gray-statistics-center
-  name: mop-app-gray-statistics-center
+    app: kafka
+  name: kafka-0
 spec:
+  clusterIP: None
   ports:
-  - name: "mop-app-gray-statistics-center"
-    port: 8080
-    targetPort: 8080
+  - name: "kafka"
+    port: 9092
+    targetPort: 9092
   selector:
-    app: mop-app-gray-statistics-center
+    app: kafka
 status:
   loadBalancer: {}

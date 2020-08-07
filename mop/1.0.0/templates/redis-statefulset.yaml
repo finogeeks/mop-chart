@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
@@ -6,9 +6,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: redis
+    app: redis
   name: redis
 spec:
+  selector:
+    matchLabels:
+      app: redis
   replicas: 1
   strategy:
     type: Recreate
@@ -16,7 +19,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: redis
+        app: redis
     spec:
       containers:
       - args:
@@ -34,6 +37,6 @@ spec:
       - name: redis-claim0
         persistentVolumeClaim:
           claimName: redis-claim0
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}
