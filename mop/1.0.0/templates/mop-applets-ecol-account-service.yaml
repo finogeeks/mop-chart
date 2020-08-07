@@ -6,14 +6,14 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    app: mop-app-gray-statistics-center
-  name: mop-app-gray-statistics-center
+    app: applets-ecol-account
+  name: applets-ecol-account
 spec:
   ports:
-  - name: "mop-app-gray-statistics-center"
+  - name: "applets-ecol-account"
     port: 8080
     targetPort: 8080
   selector:
-    app: mop-app-gray-statistics-center
+    app: applets-ecol-account
 status:
   loadBalancer: {}

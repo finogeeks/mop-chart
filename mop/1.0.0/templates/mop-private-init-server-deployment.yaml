@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-private-init-server
+    app: mop-private-init-server
   name: mop-private-init-server
 spec:
+  selector:
+    matchLabels:
+      app: mop-private-init-server
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-private-init-server
+        app: mop-private-init-server
     spec:
       containers:
       - env:
@@ -35,6 +38,6 @@ spec:
         name: mop-private-init-server
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

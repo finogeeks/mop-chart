@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-netdisk-proxy
+    app: mop-netdisk-proxy
   name: mop-netdisk-proxy
 spec:
+  selector:
+    matchLabels:
+      app: mop-netdisk-proxy
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-netdisk-proxy
+        app: mop-netdisk-proxy
     spec:
       containers:
       - env:
@@ -31,6 +34,6 @@ spec:
         name: mop-netdisk-proxy
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

@@ -6,14 +6,14 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    app: mop-app-gray-statistics-center
-  name: mop-app-gray-statistics-center
+    app: mop-fast-trial-manager
+  name: mop-fast-trial-manager
 spec:
   ports:
-  - name: "mop-app-gray-statistics-center"
+  - name: "mop-fast-trial-manager"
     port: 8080
     targetPort: 8080
   selector:
-    app: mop-app-gray-statistics-center
+    app: mop-fast-trial-manager
 status:
   loadBalancer: {}

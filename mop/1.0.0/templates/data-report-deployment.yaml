@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: data-report
+    app: data-report
   name: data-report
 spec:
+  selector:
+    matchLabels:
+      app: data-report
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: data-report
+        app: data-report
     spec:
       containers:
       - env:
@@ -25,10 +28,12 @@ spec:
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
+        - name: PUB_ENV
+          value: mop-community
         image: {{ .Values.images.data_report }}
         name: data-report
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

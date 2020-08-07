@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,29 +6,32 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: applets-ecol-domain
-  name: applets-ecol-domain
+    app: applets-ecol-notify
+  name: applets-ecol-notify
 spec:
+  selector:
+    matchLabels:
+      app: applets-ecol-notify
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: applets-ecol-domain
+        app: applets-ecol-notify
     spec:
       containers:
       - env:
+        - name: ACCOUNT_HOST
+          value: http://applets-ecol-account:8080
         - name: KAFKA_ADDR
           value: kafka:9092
         - name: MONGO_URL
           value: mongo
-        - name: WHITELIST_DOMAIN_MAX_NUM
-          value: "1000"
-        image: {{ .Values.images.applets_ecol_domain }}
-        name: applets-ecol-domain
+        image: {{ .Values.images.applets_ecol_notify }}
+        name: applets-ecol-notify
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}

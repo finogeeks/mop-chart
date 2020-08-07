@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,16 +6,19 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: mop-article-pub-center
+    app: mop-article-pub-center
   name: mop-article-pub-center
 spec:
+  selector:
+    matchLabels:
+      app: mop-article-pub-center
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mop-article-pub-center
+        app: mop-article-pub-center
     spec:
       containers:
       - env:
@@ -44,6 +47,6 @@ spec:
         name: mop-article-pub-center
         resources: {}
       restartPolicy: Always
-      imagePullSecrets:
-        - name: {{ .Values.k8s_imagePullSecrets }}
+      
+        
 status: {}
