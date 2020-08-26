@@ -4,4 +4,5 @@ version: 1.0.0
 keywords:
   - mop
 sources:
-home:
+home: https://mp.finogeeks.com/
+icon: https://static-1251849568.cos.ap-guangzhou.myqcloud.com/statics/img/logo.png
