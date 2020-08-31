@@ -1,8 +1,9 @@
 name: mop
-description: mop
+description: 凡泰小程序开放平台，助力企业构建属于自己的小程序生态。
 version: 1.0.0
 keywords:
   - mop
 sources:
 home: https://mp.finogeeks.com/
-icon: https://static-1251849568.cos.ap-guangzhou.myqcloud.com/statics/img/logo.png
+#icon: https://static-1251849568.cos.ap-guangzhou.myqcloud.com/statics/img/logo.png
+icon: https://static-1251849568.cos.ap-guangzhou.myqcloud.com/statics/img/logo-R.png
